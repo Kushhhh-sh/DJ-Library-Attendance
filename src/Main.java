@@ -1,3 +1,12 @@
+
+import com.sun.glass.events.KeyEvent;
+import controller.StudentController;
+import db.DBConnect;
+import java.sql.Connection;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -9,12 +18,24 @@
  */
 public class Main extends javax.swing.JFrame {
 
+    private Connection dbConnection;
+    private DateTimeFormatter timeFormat;
+    private DateTimeFormatter dateFormat;
+    private LocalDateTime now;
+    private StudentController studentController;
     /**
      * Creates new form Main
      */
     public Main() {
         initComponents();
         setLocationRelativeTo(null);
+        this.dbConnection = DBConnect.getConnection();
+        this.timeFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
+        this.dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        this.studentController = new StudentController();
+                
+        if(dbConnection == null)
+            JOptionPane.showMessageDialog(this, "Connection with the database was not established!", "DB Connection Error", JOptionPane.ERROR_MESSAGE);
     }
 
     /**
@@ -26,21 +47,58 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txtSapId = new javax.swing.JTextField();
+        lblSapId = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("DJSCE Library Attendance System");
+
+        txtSapId.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        txtSapId.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtSapIdKeyPressed(evt);
+            }
+        });
+
+        lblSapId.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        lblSapId.setText("SAP ID:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(64, Short.MAX_VALUE)
+                .addComponent(lblSapId)
+                .addGap(18, 18, 18)
+                .addComponent(txtSapId, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(90, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSapId)
+                    .addComponent(txtSapId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtSapIdKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSapIdKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            now = LocalDateTime.now();
+            String time = timeFormat.format(now);
+            String date = dateFormat.format(now);
+            String sapId = txtSapId.getText();
+            
+            this.studentController.insert(sapId, date, time);
+            
+            txtSapId.setText("");
+        }
+    }//GEN-LAST:event_txtSapIdKeyPressed
 
     /**
      * @param args the command line arguments
@@ -78,5 +136,7 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lblSapId;
+    private javax.swing.JTextField txtSapId;
     // End of variables declaration//GEN-END:variables
 }
