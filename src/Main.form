@@ -28,22 +28,22 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" max="32767" attributes="0"/>
-          <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
+          <Component id="pnlControls" max="32767" attributes="0"/>
+          <Component id="pnlHeader" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              <Component id="pnlHeader" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <Component id="pnlControls" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="pnlControls">
 
       <Layout>
         <DimensionLayout dim="0">
@@ -57,9 +57,9 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace pref="172" max="32767" attributes="0"/>
-                  <Component id="jButton1" min="-2" pref="108" max="-2" attributes="0"/>
+                  <Component id="btnDataTable" min="-2" pref="108" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                  <Component id="jButton2" min="-2" pref="108" max="-2" attributes="0"/>
+                  <Component id="btnReports" min="-2" pref="108" max="-2" attributes="0"/>
                   <EmptySpace pref="173" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -74,8 +74,8 @@
                   </Group>
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnDataTable" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnReports" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="62" max="32767" attributes="0"/>
               </Group>
@@ -101,7 +101,7 @@
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSapIdKeyPressed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="btnDataTable">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -110,7 +110,7 @@
             <Property name="text" type="java.lang.String" value="Data"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="btnReports">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="0"/>
@@ -121,16 +121,16 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JPanel" name="jPanel2">
+    <Container class="javax.swing.JPanel" name="pnlHeader">
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="72" max="32767" attributes="0"/>
-                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblClgLogo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblClgName" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="72" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -139,19 +139,19 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblClgName" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="20" max="32767" attributes="0"/>
-                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblClgLogo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="20" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel1">
+        <Component class="javax.swing.JLabel" name="lblClgName">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="25" style="1"/>
@@ -159,7 +159,7 @@
             <Property name="text" type="java.lang.String" value="D. J. Sanghvi College Library"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
+        <Component class="javax.swing.JLabel" name="lblClgLogo">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/res/DJSCE_Logo.png"/>

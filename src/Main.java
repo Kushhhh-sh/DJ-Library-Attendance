@@ -47,14 +47,14 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        pnlControls = new javax.swing.JPanel();
         lblSapId = new javax.swing.JLabel();
         txtSapId = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        btnDataTable = new javax.swing.JButton();
+        btnReports = new javax.swing.JButton();
+        pnlHeader = new javax.swing.JPanel();
+        lblClgName = new javax.swing.JLabel();
+        lblClgLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("DJSCE Library Attendance System");
@@ -71,70 +71,70 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton1.setMnemonic('d');
-        jButton1.setText("Data");
+        btnDataTable.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnDataTable.setMnemonic('d');
+        btnDataTable.setText("Data");
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jButton2.setMnemonic('r');
-        jButton2.setText("Report");
+        btnReports.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnReports.setMnemonic('r');
+        btnReports.setText("Report");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlControlsLayout = new javax.swing.GroupLayout(pnlControls);
+        pnlControls.setLayout(pnlControlsLayout);
+        pnlControlsLayout.setHorizontalGroup(
+            pnlControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlControlsLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblSapId)
                 .addGap(18, 18, 18)
                 .addComponent(txtSapId, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(pnlControlsLayout.createSequentialGroup()
                 .addContainerGap(172, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnDataTable, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnReports, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(173, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        pnlControlsLayout.setVerticalGroup(
+            pnlControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlControlsLayout.createSequentialGroup()
                 .addContainerGap(15, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSapId)
                     .addComponent(txtSapId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                .addGroup(pnlControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDataTable)
+                    .addComponent(btnReports))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 25)); // NOI18N
-        jLabel1.setText("D. J. Sanghvi College Library");
+        lblClgName.setFont(new java.awt.Font("Segoe UI", 1, 25)); // NOI18N
+        lblClgName.setText("D. J. Sanghvi College Library");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/DJSCE_Logo.png"))); // NOI18N
+        lblClgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/DJSCE_Logo.png"))); // NOI18N
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlHeaderLayout = new javax.swing.GroupLayout(pnlHeader);
+        pnlHeader.setLayout(pnlHeaderLayout);
+        pnlHeaderLayout.setHorizontalGroup(
+            pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHeaderLayout.createSequentialGroup()
                 .addContainerGap(72, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addComponent(lblClgLogo)
                 .addGap(26, 26, 26)
-                .addComponent(jLabel1)
+                .addComponent(lblClgName)
                 .addContainerGap(72, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        pnlHeaderLayout.setVerticalGroup(
+            pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlHeaderLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(lblClgName)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHeaderLayout.createSequentialGroup()
                 .addContainerGap(20, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addComponent(lblClgLogo)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -142,15 +142,15 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlControls, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(pnlControls, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -205,13 +205,13 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton btnDataTable;
+    private javax.swing.JButton btnReports;
+    private javax.swing.JLabel lblClgLogo;
+    private javax.swing.JLabel lblClgName;
     private javax.swing.JLabel lblSapId;
+    private javax.swing.JPanel pnlControls;
+    private javax.swing.JPanel pnlHeader;
     private javax.swing.JTextField txtSapId;
     // End of variables declaration//GEN-END:variables
 }
