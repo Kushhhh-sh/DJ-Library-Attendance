@@ -47,6 +47,8 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jEditorPane1 = new javax.swing.JEditorPane();
         pnlControls = new javax.swing.JPanel();
         lblSapId = new javax.swing.JLabel();
         txtSapId = new javax.swing.JTextField();
@@ -55,16 +57,19 @@ public class Main extends javax.swing.JFrame {
         pnlHeader = new javax.swing.JPanel();
         lblClgName = new javax.swing.JLabel();
         lblClgLogo = new javax.swing.JLabel();
+        lblClgName1 = new javax.swing.JLabel();
+
+        jScrollPane1.setViewportView(jEditorPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("DJSCE Library Attendance System");
         setMinimumSize(new java.awt.Dimension(621, 337));
         setResizable(false);
 
-        lblSapId.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        lblSapId.setFont(new java.awt.Font("Ubuntu", 1, 18)); // NOI18N
         lblSapId.setText("SAP ID:");
 
-        txtSapId.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        txtSapId.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         txtSapId.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtSapIdKeyPressed(evt);
@@ -89,12 +94,12 @@ public class Main extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(txtSapId, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(pnlControlsLayout.createSequentialGroup()
-                .addContainerGap(172, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlControlsLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnDataTable, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
                 .addComponent(btnReports, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(173, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlControlsLayout.setVerticalGroup(
             pnlControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,39 +108,48 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(pnlControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSapId)
                     .addComponent(txtSapId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                .addGap(37, 37, 37)
                 .addGroup(pnlControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDataTable)
                     .addComponent(btnReports))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         lblClgName.setFont(new java.awt.Font("Segoe UI", 1, 25)); // NOI18N
-        lblClgName.setText("D. J. Sanghvi College Library");
+        lblClgName.setText("D. J. Sanghvi College Of Engineering");
 
         lblClgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/res/DJSCE_Logo.png"))); // NOI18N
+
+        lblClgName1.setFont(new java.awt.Font("Segoe UI", 1, 25)); // NOI18N
+        lblClgName1.setText("Library");
 
         javax.swing.GroupLayout pnlHeaderLayout = new javax.swing.GroupLayout(pnlHeader);
         pnlHeader.setLayout(pnlHeaderLayout);
         pnlHeaderLayout.setHorizontalGroup(
             pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHeaderLayout.createSequentialGroup()
-                .addContainerGap(72, Short.MAX_VALUE)
+                .addContainerGap(74, Short.MAX_VALUE)
                 .addComponent(lblClgLogo)
-                .addGap(26, 26, 26)
-                .addComponent(lblClgName)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblClgName)
+                    .addGroup(pnlHeaderLayout.createSequentialGroup()
+                        .addGap(202, 202, 202)
+                        .addComponent(lblClgName1)))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
         pnlHeaderLayout.setVerticalGroup(
             pnlHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlHeaderLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblClgName)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlHeaderLayout.createSequentialGroup()
                 .addContainerGap(20, Short.MAX_VALUE)
                 .addComponent(lblClgLogo)
                 .addContainerGap(20, Short.MAX_VALUE))
+            .addGroup(pnlHeaderLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(lblClgName)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblClgName1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -207,8 +221,11 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDataTable;
     private javax.swing.JButton btnReports;
+    private javax.swing.JEditorPane jEditorPane1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblClgLogo;
     private javax.swing.JLabel lblClgName;
+    private javax.swing.JLabel lblClgName1;
     private javax.swing.JLabel lblSapId;
     private javax.swing.JPanel pnlControls;
     private javax.swing.JPanel pnlHeader;
