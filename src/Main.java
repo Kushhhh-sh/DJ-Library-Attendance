@@ -83,6 +83,11 @@ public class Main extends javax.swing.JFrame {
         btnReports.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnReports.setMnemonic('r');
         btnReports.setText("Report");
+        btnReports.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReportsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlControlsLayout = new javax.swing.GroupLayout(pnlControls);
         pnlControls.setLayout(pnlControlsLayout);
@@ -182,6 +187,11 @@ public class Main extends javax.swing.JFrame {
             txtSapId.setText("");
         }
     }//GEN-LAST:event_txtSapIdKeyPressed
+
+    private void btnReportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportsActionPerformed
+        ReportFrame frame = new ReportFrame();
+        frame.setVisible(true);
+    }//GEN-LAST:event_btnReportsActionPerformed
 
     /**
      * @param args the command line arguments
