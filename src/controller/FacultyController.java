@@ -18,25 +18,25 @@ import java.util.logging.Logger;
  *
  * @author kushhhh
  */
-public class StudentController {
+public class FacultyController {
     private Connection conn;
     private PreparedStatement statement;
     
-    public StudentController() {
+    public FacultyController() {
         conn = DBConnect.getConnection();
         
     }
     
-    public ResultSet getStudentsWithinDateRange(String from, String to) {
+    public ResultSet getFacultyWithinDateRange(String from, String to) {
         ResultSet rs;
         try {
-            this.statement = this.conn.prepareStatement("SELECT * FROM students WHERE date >= ? AND date <= ?");
+            this.statement = this.conn.prepareStatement("SELECT * FROM faculty WHERE date >= ? AND date <= ?");
             this.statement.setString(1, from);
             this.statement.setString(2, to);
             rs = this.statement.executeQuery();
             return rs;
         } catch (SQLException ex) {
-            Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
@@ -47,7 +47,7 @@ public class StudentController {
         String todayDate = DateTimeFormatter.ofPattern("yyyy/MM/dd").format(LocalDateTime.now());
                 
         try {
-            statement = this.conn.prepareStatement("SELECT sap_id, date, in_time, status FROM students WHERE sap_id = ? AND date = ?");
+            statement = this.conn.prepareStatement("SELECT sap_id, date, in_time, status FROM faculty WHERE sap_id = ? AND date = ?");
             statement.setString(1, sapId);
             statement.setString(2, date);
             
@@ -65,14 +65,14 @@ public class StudentController {
             
             if(! isIn) {
                 System.out.println("Inserting record for " + sapId);
-                statement = conn.prepareStatement("INSERT INTO students(sap_id, date, in_time, status) VALUES (?, ?, ?, ?)");
+                statement = conn.prepareStatement("INSERT INTO faculty(sap_id, date, in_time, status) VALUES (?, ?, ?, ?)");
                 statement.setString(1, sapId);
                 statement.setString(2, date);
                 statement.setString(3, time);
                 statement.setString(4, "in");
                 statement.execute();
             } else {
-                statement = conn.prepareStatement("UPDATE students SET out_time = ?, status = ? WHERE sap_id = ? AND in_time = ?");
+                statement = conn.prepareStatement("UPDATE faculty SET out_time = ?, status = ? WHERE sap_id = ? AND in_time = ?");
                 statement.setString(1, time);
                 statement.setString(2, "out");
                 statement.setString(3, sapId);
@@ -80,7 +80,7 @@ public class StudentController {
                 statement.execute();
             }
         } catch (SQLException ex) {
-            Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
