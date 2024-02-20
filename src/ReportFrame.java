@@ -202,10 +202,14 @@ public class ReportFrame extends javax.swing.JFrame {
         try {
             String from = dtcFrom.getSelectedDate().toString();
             String to = dtcTo.getSelectedDate().toString();
+            
+            String newFrom = from.replaceAll("/", "-");
+            String newTo = to.replaceAll("/", "-");
+            String fileName = "Report_" + newFrom + "_" + newTo + ".csv";
             this.fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
             this.fileChooser.setFileFilter(new FileNameExtensionFilter("CSV File (*.csv)","csv"));
             this.fileChooser.setAcceptAllFileFilterUsed(false);
-            this.fileChooser.setSelectedFile(new File("Backup.csv"));
+            this.fileChooser.setSelectedFile(new File(fileName));
             result = this.fileChooser.showSaveDialog(this);
             if(result == JFileChooser.APPROVE_OPTION) {
                 File f = this.fileChooser.getSelectedFile();
@@ -236,10 +240,15 @@ public class ReportFrame extends javax.swing.JFrame {
         ResultSet rs;
         String from = dtcFrom.getSelectedDate().toString();
         String to = dtcTo.getSelectedDate().toString();
+        
+        String newFrom = from.replaceAll("/", "-");
+        String newTo = to.replaceAll("/", "-");
+        String fileName = "Report_" + newFrom + "_" + newTo + ".pdf";
+        
         this.fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
         this.fileChooser.setFileFilter(new FileNameExtensionFilter("PDF File (*.pdf)","pdf"));
         this.fileChooser.setAcceptAllFileFilterUsed(false);
-        this.fileChooser.setSelectedFile(new File("Backup.pdf"));
+        this.fileChooser.setSelectedFile(new File(fileName));
         result = this.fileChooser.showSaveDialog(this);
         if(result == JFileChooser.APPROVE_OPTION) {
             f = this.fileChooser.getSelectedFile();
