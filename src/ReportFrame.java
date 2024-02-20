@@ -1,3 +1,17 @@
+
+import controller.StudentController;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -8,13 +22,17 @@
  * @author kushhhh
  */
 public class ReportFrame extends javax.swing.JFrame {
-
+    StudentController studentController;
+    JFileChooser fileChooser;
     /**
      * Creates new form ReportFrame
      */
     public ReportFrame() {
         initComponents();
         setLocationRelativeTo(null);
+        this.studentController = new StudentController();
+        this.fileChooser = new JFileChooser();
+        
     }
 
     /**
@@ -170,7 +188,37 @@ public class ReportFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcelActionPerformed
-        System.out.println(dtcFrom.getSelectedDate());
+        PrintWriter pw = null;
+        int result;
+        try {
+            String from = dtcFrom.getSelectedDate().toString();
+            String to = dtcTo.getSelectedDate().toString();
+            this.fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+            this.fileChooser.setFileFilter(new FileNameExtensionFilter("CSV File (*.csv)","csv"));
+            this.fileChooser.setAcceptAllFileFilterUsed(false);
+            this.fileChooser.setSelectedFile(new File("Backup.csv"));
+            result = this.fileChooser.showSaveDialog(this);
+            if(result == JFileChooser.APPROVE_OPTION) {
+                File f = this.fileChooser.getSelectedFile();
+                pw = new PrintWriter(f);
+
+                ResultSet rs = this.studentController.getStudentsWithinDateRange(from, to);
+                pw.println("SAP ID, Date, In Time, Out Time");
+                while(rs.next()) {
+                    pw.println(rs.getString(1) + "," + rs.getString(2) + "," + rs.getString(3) + "," + rs.getString(4));
+                }
+                
+                JOptionPane.showMessageDialog(this, "File Saved Successfully\nLocation: " + f.getAbsolutePath(), "File Saved Successfully!", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "An Error Occured while saving the file!", "Error!", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ReportFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch(SQLException ex) {
+            Logger.getLogger(ReportFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            pw.close();
+        }
     }//GEN-LAST:event_btnExcelActionPerformed
 
     /**
