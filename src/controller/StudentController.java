@@ -35,6 +35,12 @@ public class StudentController {
             return rs.getInt(1);
         } catch (SQLException ex) {
             Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return -1;
     }
@@ -105,6 +111,12 @@ public class StudentController {
             }
         } catch (SQLException ex) {
             Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 }

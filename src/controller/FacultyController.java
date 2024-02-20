@@ -35,6 +35,12 @@ public class FacultyController {
             return rs.getInt(1);
         } catch (SQLException ex) {
             Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         return -1;
     }
@@ -76,7 +82,6 @@ public class FacultyController {
             statement.setString(2, date);
             
             ResultSet rs = statement.executeQuery();
-            
             if(rs != null) {
                 while(rs.next()) {
                     if("in".equals(rs.getString(4)) && todayDate.equals(rs.getString(2))){
@@ -95,6 +100,7 @@ public class FacultyController {
                 statement.setString(3, time);
                 statement.setString(4, "in");
                 statement.execute();
+                
             } else {
                 statement = conn.prepareStatement("UPDATE faculty SET out_time = ?, status = ? WHERE sap_id = ? AND in_time = ?");
                 statement.setString(1, time);
@@ -105,6 +111,12 @@ public class FacultyController {
             }
         } catch (SQLException ex) {
             Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(FacultyController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 }
