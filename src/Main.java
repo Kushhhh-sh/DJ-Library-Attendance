@@ -79,6 +79,11 @@ public class Main extends javax.swing.JFrame {
         btnDataTable.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnDataTable.setMnemonic('d');
         btnDataTable.setText("Data");
+        btnDataTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDataTableActionPerformed(evt);
+            }
+        });
 
         btnReports.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnReports.setMnemonic('r');
@@ -94,17 +99,17 @@ public class Main extends javax.swing.JFrame {
         pnlControlsLayout.setHorizontalGroup(
             pnlControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlControlsLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(153, Short.MAX_VALUE)
                 .addComponent(lblSapId)
                 .addGap(18, 18, 18)
                 .addComponent(txtSapId, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(154, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlControlsLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnDataTable, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
                 .addComponent(btnReports, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(258, 258, 258))
         );
         pnlControlsLayout.setVerticalGroup(
             pnlControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,11 +118,11 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(pnlControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSapId)
                     .addComponent(txtSapId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                .addGap(48, 48, 48)
                 .addGroup(pnlControlsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDataTable)
                     .addComponent(btnReports))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addGap(46, 46, 46))
         );
 
         lblClgName.setFont(new java.awt.Font("Segoe UI", 1, 25)); // NOI18N
@@ -192,6 +197,11 @@ public class Main extends javax.swing.JFrame {
         ReportFrame frame = new ReportFrame();
         frame.setVisible(true);
     }//GEN-LAST:event_btnReportsActionPerformed
+
+    private void btnDataTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDataTableActionPerformed
+        DataFrame frame = new DataFrame();
+        frame.setVisible(true);
+    }//GEN-LAST:event_btnDataTableActionPerformed
 
     /**
      * @param args the command line arguments
