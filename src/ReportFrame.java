@@ -218,7 +218,7 @@ public class ReportFrame extends javax.swing.JFrame {
                 while(rs.next()) {
                     pw.println(rs.getString(1) + "," + rs.getString(2) + "," + rs.getString(3) + "," + rs.getString(4));
                 }
-                
+                pw.close();
                 JOptionPane.showMessageDialog(this, "File Saved Successfully\nLocation: " + f.getAbsolutePath(), "File Saved Successfully!", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(this, "An Error Occured while saving the file!", "Error!", JOptionPane.ERROR_MESSAGE);
@@ -227,8 +227,6 @@ public class ReportFrame extends javax.swing.JFrame {
             Logger.getLogger(ReportFrame.class.getName()).log(Level.SEVERE, null, ex);
         } catch(SQLException ex) {
             Logger.getLogger(ReportFrame.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
-            pw.close();
         }
     }//GEN-LAST:event_btnExcelActionPerformed
 
