@@ -19,9 +19,9 @@ public class DBConnect {
     
     static {
         STUDENTS_TABLE_SQL = "CREATE TABLE IF NOT EXISTS students (" +
-                "sap_id TEXT, date TEXT, in_time TEXT, out_time TEXT, status TEXT, PRIMARY KEY(sap_id, in_time))";
+                "sap_id TEXT, date TEXT, in_time TEXT, out_time TEXT, status TEXT, PRIMARY KEY(sap_id, date, in_time))";
         FACULTY_TABLE_SQL = "CREATE TABLE IF NOT EXISTS faculty (" +
-                "sap_id TEXT, date TEXT, in_time TEXT, out_time TEXT, status TEXT, PRIMARY KEY(sap_id, in_time))";
+                "sap_id TEXT, date TEXT, in_time TEXT, out_time TEXT, status TEXT, PRIMARY KEY(sap_id, date, in_time))";
     }
     
     public static Connection getConnection() {
