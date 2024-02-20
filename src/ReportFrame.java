@@ -200,6 +200,8 @@ public class ReportFrame extends javax.swing.JFrame {
             result = this.fileChooser.showSaveDialog(this);
             if(result == JFileChooser.APPROVE_OPTION) {
                 File f = this.fileChooser.getSelectedFile();
+                if(!f.getAbsolutePath().endsWith(".csv"))
+                    f = new File(f.getAbsolutePath() + ".csv");
                 pw = new PrintWriter(f);
 
                 ResultSet rs = this.studentController.getStudentsWithinDateRange(from, to);
