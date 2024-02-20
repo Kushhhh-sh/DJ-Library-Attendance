@@ -40,7 +40,7 @@ public class SelectedDate {
         String strMonth = String.valueOf(month);
         if(month < 10)
             strMonth = "0" + month;
-        return day + "/" + strMonth + "/" + year;
+        return year + "/" + strMonth + "/" + day;
     }
     
     
