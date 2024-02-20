@@ -30,7 +30,7 @@ public class StudentController {
     public void insert(String sapId, String date, String time) {
         boolean isIn = false;
         String inTime = "";
-        String todayDate = DateTimeFormatter.ofPattern("dd/MM/yyyy").format(LocalDateTime.now());
+        String todayDate = DateTimeFormatter.ofPattern("yyyy/MM/dd").format(LocalDateTime.now());
                 
         try {
             statement = this.conn.prepareStatement("SELECT sap_id, date, in_time, status FROM students WHERE sap_id = ? AND date = ?");

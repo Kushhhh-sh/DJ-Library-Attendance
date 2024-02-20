@@ -31,7 +31,7 @@ public class Main extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         this.dbConnection = DBConnect.getConnection();
         this.timeFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
-        this.dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        this.dateFormat = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         this.studentController = new StudentController();
                 
         if(dbConnection == null)
