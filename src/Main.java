@@ -1,5 +1,6 @@
 
 import com.sun.glass.events.KeyEvent;
+import controller.FacultyController;
 import controller.StudentController;
 import db.DBConnect;
 import java.sql.Connection;
@@ -23,6 +24,7 @@ public class Main extends javax.swing.JFrame {
     private DateTimeFormatter dateFormat;
     private LocalDateTime now;
     private StudentController studentController;
+    private FacultyController facultyController;
     /**
      * Creates new form Main
      */
@@ -33,6 +35,7 @@ public class Main extends javax.swing.JFrame {
         this.timeFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
         this.dateFormat = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         this.studentController = new StudentController();
+        this.facultyController = new FacultyController();
                 
         if(dbConnection == null)
             JOptionPane.showMessageDialog(this, "Connection with the database was not established!", "DB Connection Error", JOptionPane.ERROR_MESSAGE);
@@ -187,7 +190,14 @@ public class Main extends javax.swing.JFrame {
             String date = dateFormat.format(now);
             String sapId = txtSapId.getText();
             
-            this.studentController.insert(sapId, date, time);
+            if(sapId.length() > 4 && sapId.substring(0, 4).equals("6000"))
+                this.studentController.insert(sapId, date, time);
+            else if(sapId.length() > 4 && sapId.substring(0, 2).equals("00")) {
+                sapId = "60" + sapId;
+                this.studentController.insert(sapId, date, time);
+            } else {
+                this.facultyController.insert(sapId, date, time);
+            }
             
             txtSapId.setText("");
         }
