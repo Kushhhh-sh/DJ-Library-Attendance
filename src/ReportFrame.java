@@ -205,19 +205,24 @@ public class ReportFrame extends javax.swing.JFrame {
             
             String newFrom = from.replaceAll("/", "-");
             String newTo = to.replaceAll("/", "-");
-            String fileName = "Report_" + newFrom + "_" + newTo + ".csv";
-            this.fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-            this.fileChooser.setFileFilter(new FileNameExtensionFilter("CSV File (*.csv)","csv"));
-            this.fileChooser.setAcceptAllFileFilterUsed(false);
-            this.fileChooser.setSelectedFile(new File(fileName));
+            String studentFileName = "Report_Student_" + newFrom + "_" + newTo + ".csv";
+            String facultyFileName = "Report_Faculty_" + newFrom + "_" + newTo + ".csv";
+            this.fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            
             result = this.fileChooser.showSaveDialog(this);
             if(result == JFileChooser.APPROVE_OPTION) {
                 File f = this.fileChooser.getSelectedFile();
-                if(!f.getAbsolutePath().endsWith(".csv"))
-                    f = new File(f.getAbsolutePath() + ".csv");
-                pw = new PrintWriter(f);
 
                 ResultSet rs = this.studentController.getStudentsWithinDateRange(from, to);
+                pw = new PrintWriter(new File(f.getAbsolutePath(), studentFileName));
+                pw.println("SAP ID, Date, In Time, Out Time");
+                while(rs.next()) {
+                    pw.println(rs.getString(1) + "," + rs.getString(2) + "," + rs.getString(3) + "," + rs.getString(4));
+                }
+                pw.close();
+                
+                rs = this.facultyController.getFacultyWithinDateRange(from, to);
+                pw = new PrintWriter(new File(f.getAbsolutePath(), facultyFileName));
                 pw.println("SAP ID, Date, In Time, Out Time");
                 while(rs.next()) {
                     pw.println(rs.getString(1) + "," + rs.getString(2) + "," + rs.getString(3) + "," + rs.getString(4));
@@ -243,20 +248,21 @@ public class ReportFrame extends javax.swing.JFrame {
         
         String newFrom = from.replaceAll("/", "-");
         String newTo = to.replaceAll("/", "-");
-        String fileName = "Report_" + newFrom + "_" + newTo + ".pdf";
+        String studentFileName = "Report_Student_" + newFrom + "_" + newTo + ".pdf";
+        String facultyFileName = "Report_Faculty_" + newFrom + "_" + newTo + ".pdf";
         
-        this.fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        this.fileChooser.setFileFilter(new FileNameExtensionFilter("PDF File (*.pdf)","pdf"));
-        this.fileChooser.setAcceptAllFileFilterUsed(false);
-        this.fileChooser.setSelectedFile(new File(fileName));
+        this.fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        
         result = this.fileChooser.showSaveDialog(this);
         if(result == JFileChooser.APPROVE_OPTION) {
             f = this.fileChooser.getSelectedFile();
-            if(!f.getAbsolutePath().endsWith(".pdf"))
-                f = new File(f.getAbsolutePath() + ".pdf");
             rs = this.studentController.getStudentsWithinDateRange(from, to);
             
-            new PdfGen().generatePDF(f, rs);
+            new PdfGen().generatePDF(new File(f.getAbsolutePath(), studentFileName), rs);
+            
+            rs = this.facultyController.getFacultyWithinDateRange(from, to);
+            
+            new PdfGen().generatePDF(new File(f.getAbsolutePath(), facultyFileName), rs);
             
             JOptionPane.showMessageDialog(this, "File Saved Successfully\nLocation: " + f.getAbsolutePath(), "File Saved Successfully!", JOptionPane.INFORMATION_MESSAGE);
         } else {
