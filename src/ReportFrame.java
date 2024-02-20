@@ -12,6 +12,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import pdfgen.PdfGen;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -247,6 +248,8 @@ public class ReportFrame extends javax.swing.JFrame {
             if(!f.getAbsolutePath().endsWith(".pdf"))
                 f = new File(f.getAbsolutePath() + ".pdf");
             rs = this.studentController.getStudentsWithinDateRange(from, to);
+            
+            new PdfGen().generatePDF(f, rs);
             
             JOptionPane.showMessageDialog(this, "File Saved Successfully\nLocation: " + f.getAbsolutePath(), "File Saved Successfully!", JOptionPane.INFORMATION_MESSAGE);
         } else {
