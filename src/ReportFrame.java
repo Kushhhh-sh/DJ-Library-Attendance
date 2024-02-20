@@ -1,4 +1,5 @@
 
+import controller.FacultyController;
 import controller.StudentController;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -22,6 +23,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author kushhhh
  */
 public class ReportFrame extends javax.swing.JFrame {
+    FacultyController facultyController;
     StudentController studentController;
     JFileChooser fileChooser;
     /**
@@ -31,6 +33,7 @@ public class ReportFrame extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         this.studentController = new StudentController();
+        this.facultyController = new FacultyController();
         this.fileChooser = new JFileChooser();
         
     }
@@ -120,6 +123,11 @@ public class ReportFrame extends javax.swing.JFrame {
         btnPDF.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnPDF.setMnemonic('d');
         btnPDF.setText("PDF");
+        btnPDF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPDFActionPerformed(evt);
+            }
+        });
 
         dtcFrom.setForeground(new java.awt.Color(153, 204, 255));
 
@@ -222,6 +230,29 @@ public class ReportFrame extends javax.swing.JFrame {
             pw.close();
         }
     }//GEN-LAST:event_btnExcelActionPerformed
+
+    private void btnPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPDFActionPerformed
+        int result;
+        File f;
+        ResultSet rs;
+        String from = dtcFrom.getSelectedDate().toString();
+        String to = dtcTo.getSelectedDate().toString();
+        this.fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        this.fileChooser.setFileFilter(new FileNameExtensionFilter("PDF File (*.pdf)","pdf"));
+        this.fileChooser.setAcceptAllFileFilterUsed(false);
+        this.fileChooser.setSelectedFile(new File("Backup.pdf"));
+        result = this.fileChooser.showSaveDialog(this);
+        if(result == JFileChooser.APPROVE_OPTION) {
+            f = this.fileChooser.getSelectedFile();
+            if(!f.getAbsolutePath().endsWith(".pdf"))
+                f = new File(f.getAbsolutePath() + ".pdf");
+            rs = this.studentController.getStudentsWithinDateRange(from, to);
+            
+            JOptionPane.showMessageDialog(this, "File Saved Successfully\nLocation: " + f.getAbsolutePath(), "File Saved Successfully!", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "An Error Occured while saving the file!", "Error!", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnPDFActionPerformed
 
     /**
      * @param args the command line arguments

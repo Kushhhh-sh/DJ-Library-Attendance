@@ -206,6 +206,9 @@
             <Property name="mnemonic" type="int" value="100"/>
             <Property name="text" type="java.lang.String" value="PDF"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPDFActionPerformed"/>
+          </Events>
         </Component>
         <Component class="com.raven.datechooser.DateChooser" name="dtcFrom">
           <Properties>
