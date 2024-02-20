@@ -27,6 +27,20 @@ public class StudentController {
         
     }
     
+    public ResultSet getStudentsWithinDateRange(String from, String to) {
+        ResultSet rs;
+        try {
+            this.statement = this.conn.prepareStatement("SELECT * FROM students WHERE date >= ? AND date <= ?");
+            this.statement.setString(1, from);
+            this.statement.setString(2, to);
+            rs = this.statement.executeQuery();
+            return rs;
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+    
     public void insert(String sapId, String date, String time) {
         boolean isIn = false;
         String inTime = "";
