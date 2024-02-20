@@ -27,6 +27,30 @@ public class FacultyController {
         
     }
     
+    public int getRowCount() {
+        try {
+            this.statement = this.conn.prepareStatement("SELECT COUNT(*) FROM faculty ORDER BY in_time, date DESC");
+            ResultSet rs = this.statement.executeQuery();
+            rs.next();
+            return rs.getInt(1);
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return -1;
+    }
+    
+    public ResultSet getAll() {
+        ResultSet rs;
+        try {
+            this.statement = this.conn.prepareStatement("SELECT * FROM faculty");
+            rs = this.statement.executeQuery();
+            return rs;
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+    
     public ResultSet getFacultyWithinDateRange(String from, String to) {
         ResultSet rs;
         try {
